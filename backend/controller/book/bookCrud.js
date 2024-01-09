@@ -1,4 +1,4 @@
-import BookModel from "../../models/book";
+import BookModel from "../../models/Book.js";
 import httpStatus from "http-status"
 
 export const createBooks = async (req, res) => {

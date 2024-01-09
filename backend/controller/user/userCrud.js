@@ -1,5 +1,5 @@
-import UserModel from "../../Models/User.js";
-import bcryptjs from "bcryptjs";
+import UserModel from "../../models/User.js";
+import bcryptjs from "bcrypt";
 import { serialize } from "../../utility/Serialize.js";
 import httpStatus from "http-status";
 import { uniqueCode } from "../../utility/uniqueCode.js";

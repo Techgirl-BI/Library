@@ -7,9 +7,31 @@ import morgan from "morgan";
 import httpStatus from "http-status";
 import { config } from "./Config/config.js";
 import { dbConnect } from "./Config/db.js";
+import userRouter from "./routes/user.js";
+import bookRouter from "./routes/book.js";
+import categoryRouter from "./routes/category.js";
 const app = express()
 app.use(cors())
+app.use(morgan("dev"))
 app.use(express.json())
+app.use(express.static("public"))
+
+app.use("/user", userRouter)
+app.use("/book", bookRouter)
+app.use("/category",categoryRouter)
+app.get("/", (req, res) => {
+  res.status(httpStatus.OK).json({
+    status: "success",
+    payload: "Welcome! to E-Library App",
+  });
+});
+
+app.all("*", (req, res) => {
+  res.status(httpStatus.NOT_FOUND).json({
+    status: "error",
+    payload: "endpoint not defined",
+  });
+});
 
 dbConnect()
   .then((result) => {

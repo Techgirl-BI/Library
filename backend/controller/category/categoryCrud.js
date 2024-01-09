@@ -1,6 +1,6 @@
 
 import httpStatus from "http-status";
-import CategoryModel from "../../Models/Category";
+import CategoryModel from "../../models/Category.js";
 
 export const createCategory = async (req, res) => {
   const { name } = req.body;
